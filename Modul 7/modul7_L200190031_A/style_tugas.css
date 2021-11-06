@@ -1,0 +1,9 @@
+body{background:#39d61a;}
+h2{
+    font-family: comic sans ms; 
+    background-color: #d4a91c; 
+    text-align: center;
+    border-style: ridge;
+}
+table{background:rgb(197, 61, 61);}
+.td{font-weight: bold; border-style: ridge;}
