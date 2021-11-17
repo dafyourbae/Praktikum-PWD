@@ -1,0 +1,26 @@
+
+INSERT INTO `dokter` (`id_dokter`, `nama_dokter`) VALUES 
+('11', 'Dr.Sucipto'), 
+('22', 'Dr.Bambang'),
+('33', 'Dr.Christy');
+
+INSERT INTO `pasien` (`id_pasien`, `no_ktp`, `nama_pasien`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `nohp`, `agama`, `keluhan`, `nama_dokter`) VALUES 
+('1', '123', 'Daffa', 'Laki-Laki', '29/10/2000', 'Sukoharjo', '08591234', 'Islam', 'Meriang', 'Dr.Sucipto'),
+('2', '456', 'Rey', 'Laki-Laki', '20/11/2001', 'Klaten', '08595678', 'Islam', 'Mual', 'Dr.Bambang'),
+('3', '789', 'Lala', 'Perempuan', '03/12/1999', 'Surakarta', '08591122', 'Kristen', 'Muntah Darah', 'Dr.Christy');
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_dokter`, `id_pasien`, `id_ruang`, `diagnosa_penyakit`, `tgl_masuk`, `tgl_keluar`) VALUES 
+('101', '11', '1', '100', 'Demam Tinggi', '2021-11-02', '2021-11-17'), 
+('102', '22', '2', '200', 'Maag Akut', '2021-11-05', '2021-11-06'), 
+('103', '33', '3', '300', 'TBC', '2021-11-01', '2021-11-14')
+
+
+b. Menampilkan semua data pasien yang ditangani oleh dokter tertentu.
+SELECT * FROM pasien WHERE nama_dokter='Dr.Bambang';
+
+c. Menampilkan   data   jumlah   pasien   yang   dirawat   oleh   masing-masing dokter.
+SELECT nama_dokter, COUNT(*) AS 'jumlah' FROM pasien GROUP BY nama_dokter;
+
+d. Menampilkan nama pasien yang mendapatkan rawat inap terlama. 
+SELECT nama_pasien, MAX(DATEDIFF(tgl_keluar,tgl_masuk)) AS 'lama' FROM pasien INNER JOIN pembayaran ON pasien.id_pasien = pembayaran.id_pasien;
+
