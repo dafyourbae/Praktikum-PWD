@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pengambilan keputusan Sederhana</title>
+    <script>
+    function PK() {
+        value = document.form.value.value;
+        if (value >= 1 && value <= 20) {
+            value = "E";
+            document.form.hasil.value = value;
+        }
+        else if (value >= 21 && value <= 40) {
+            value = "D";
+            document.form.hasil.value = value;
+        }
+        else if (value >= 41 && value <= 60) {
+            value = "C";
+            document.form.hasil.value = value;
+        }
+        else if (value >= 61 && value <= 80) {
+            value = "B";
+            document.form.hasil.value = value;
+        }
+        else if (value >= 81 && value <= 100) {
+            value = "A";
+            document.form.hasil.value = value;
+        }
+    }
+    </script>
+</head>
+<body>
+    <form name="form">
+        <h3>Pengambilan Keputusan Nilai </h3></br>
+        Input nilai disini = <input type="text" name="value">
+        <input type="button" name="aksi" value="Hitung" onclick="PK()">
+    </br></br>
+    <b>Hasil = </b><input type="text" name="hasil">
+</body>
+</html>
